@@ -79,7 +79,7 @@ class Persona{
         {
             alert("Debe ingresar un numero")
         }
-        this.#altura = newAltura;
+        this.altura = newAltura;
     }
 
     get anioNacimiento(){
@@ -133,10 +133,22 @@ class Persona{
         document.write(`<br>Altura: ${this.altura} m`)
         document.write(`<br>Año de Nacimiento: ${this.anionacimiento}<br>`)
     }
-    generarDNI()
-    {
-        this.dni = Math.floor(10000000 + Math.random() * 99999999)
-        console.log(this.dni)
-    }
+}
+
+let formulario = document.getElementById('formulario');
+formulario.addEventListener('submit',guardarDatos);
+
+function guardarDatos(e)
+{
+    e.preventDefault();
+    let input = document.querySelectorAll('input');
+    let nombre = input[0].value
+    let edad = input[1].value
+    let dni = input[2].value
+    let sexo = input[3].value
+    let peso = input[4].value
+    let altura = input[5].value
+    let anionacimiento = input[6].value
+    console.log(datos);
 }
 
