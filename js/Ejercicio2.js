@@ -51,10 +51,6 @@ class Persona{
 
     setSexo(newSexo)
     {
-        if(newSexo !== 'H' || newSexo !== 'M')
-        {
-            alert("Debe Ingresar H (Hombre) o M (Mujer)");
-        }
         this.sexo = newSexo;
     }
 
@@ -92,55 +88,63 @@ class Persona{
 
     mostrarGeneracion()
     {
-        if(this.anionacimiento>=1930 && this.anionacimiento<=1948)
+        if(this.anioNacimiento>=1930 && this.anioNacimiento<=1948)
         {
-            document.write(`Usted pertenece a la Generación Silenciosa y su rasgo característico es la Austeridad<br>`);
+           return (`Usted pertenece a la Generación Silenciosa y su rasgo característico es la Austeridad`);
         }
-        else if(this.anionacimiento>=1949 && this.anionacimiento<=1968)
+        else if(this.anioNacimiento>=1949 && this.anioNacimiento<=1968)
         {
-            document.write(`Usted pertenece a la Generación Baby Boom y su rasgo característico es la Ambición<br>`);
+           return (`Usted pertenece a la Generación Baby Boom y su rasgo característico es la Ambición`);
         }
-        else if(this.anionacimiento>=1969 && this.anionacimiento<=1980)
+        else if(this.anioNacimiento>=1969 && this.anioNacimiento<=1980)
         {
-            document.write(`Usted pertenece a la Generación X y su rasgo característico es la Obsesión por el éxito<br>`);
+           return (`Usted pertenece a la Generación X y su rasgo característico es la Obsesión por el éxito`);
         }
-        else if(this.anionacimiento>=1981 && this.anionacimiento<=1993)
+        else if(this.anioNacimiento>=1981 && this.anioNacimiento<=1993)
         {
-            document.write(`Usted pertenece a la Generación Y (Millennials) y su rasgo característico es la Frustración<br>`);
+           return (`Usted pertenece a la Generación Y (Millennials) y su rasgo característico es la Frustración`);
         }
-        else if(this.anionacimiento>=1994 && this.anionacimiento<=2010)
+        else if(this.anioNacimiento>=1994 && this.anioNacimiento<=2010)
         {
-            document.write(`Usted pertenece a la Generación Z y su rasgo característico es la Irreverencia<br>`);
+          return `Usted pertenece a la Generación Z y su rasgo característico es la Irreverencia`
         }
     }
     esMayorDeEdad()
     {
         if(this.edad>=18)
         {
-            document.write("Es mayor de Edad<br>")
+            alert("Es mayor de Edad")
         }
         else{
-            document.write("No es mayor de Edad<br>")
+            alert("No es mayor de Edad")
         }
     }
     mostrarDatos()
     {
-        document.write(`Nombre: ${this.nombre}`)
-        document.write(`<br>Edad: ${this.edad}`)
-        document.write(`<br>DNI: ${this.dni}`)
-        document.write(`<br>Sexo: ${this.sexo}`)
-        document.write(`<br>Peso: ${this.peso} kg`)
-        document.write(`<br>Altura: ${this.altura} m`)
-        document.write(`<br>Año de Nacimiento: ${this.anionacimiento}<br>`)
+        alert(`
+        Nombre: ${this.nombre}
+        Edad: ${this.edad}
+        DNI: ${this.dni}
+        Sexo: ${this.sexo}
+        Altura: ${this.altura}
+        Año de Nacimiento: ${this.anioNacimiento}`)
+       // document.write(`<br>Edad: ${this.edad}`)
+       // document.write(`<br>DNI: ${this.dni}`)
+       // document.write(`<br>Sexo: ${this.sexo}`)
+       // document.write(`<br>Peso: ${this.peso} kg`)
+       // document.write(`<br>Altura: ${this.altura} m`)
+       // document.write(`<br>Año de Nacimiento: ${this.anionacimiento}<br>`)
     }
 }
 
-let formulario = document.getElementById('formulario');
-formulario.addEventListener('submit',guardarDatos);
 
-function guardarDatos(e)
-{
+let formulario = document.getElementById('formulario');
+let generacion = document.getElementById('botonGeneracion');
+let mayoredad = document.getElementById('mayoredad')
+formulario.addEventListener('submit', (e) => {
+
     e.preventDefault();
+
     let input = document.querySelectorAll('input');
     let nombre = input[0].value
     let edad = input[1].value
@@ -149,6 +153,13 @@ function guardarDatos(e)
     let peso = input[4].value
     let altura = input[5].value
     let anionacimiento = input[6].value
-    console.log(datos);
-}
+    let persona = new Persona(nombre,edad,dni,sexo,peso,altura,anionacimiento);
+    console.log(persona);
+    persona.mostrarDatos()
 
+    generacion.addEventListener("click", () => 
+    alert(persona.mostrarGeneracion()));
+
+    mayoredad.addEventListener("click", () => 
+    persona.esMayorDeEdad());
+});
