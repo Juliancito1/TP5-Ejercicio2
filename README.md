@@ -1,4 +1,4 @@
-# Trabajo Practico 5 JavaScript - DOM y BOM - Ejercicio2 Numeros Magicos 👨🏻‍💻
+# Trabajo Practico 5 JavaScript - DOM y BOM - Ejercicio2 Generaciones 👨🏻‍💻
 
 ![Javascript](https://miro.medium.com/v2/resize:fit:900/1*GDGCFOr1d65UKnIo8IjArQ.png)
 
