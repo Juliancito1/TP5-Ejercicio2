@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono:wght@300&display=swap');
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main{
+    flex-grow: 1;
+}
+
+*{
+    font-family: 'Roboto Mono', monospace;
+    }
+    
+
+body{
+    background-image: linear-gradient(120deg, #40b2a6 0%, #233e4d 100%);
+}
+
+label{
+    font-weight: bold;
+    font-size: 20px;
+}
+
